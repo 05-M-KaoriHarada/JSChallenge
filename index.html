@@ -29,7 +29,7 @@
                 <button id="save" class="rounded-lg px-5 py-3 bg-green-200 mb-5 ml-3">書き出す</button>
             </div>
 
-            <box id="list" class="w-[630px] h-[200px] bg-yellow-100 mb-30"></box>
+            <box id="list" class="w-[630px] h-[200px] bg-gray-100 mb-30"></box>
 
         
 
@@ -53,11 +53,16 @@
       明日は良い一日になりますように。
     </p>
 
+    <p id="budda" class="pb-20 text-3xl font-bold text-white flex flex-col justify-end items-center h-screen bg-no-repeat bg-cover bg-center bg-[url('imgs/budda.jpg')]">
+      今日のモヤモヤ出来事は成仏しました。<br>明日は良い一日になりますように。
+    </p>
+
 
     <script>
     $(document).ready(function () {
         $("main").hide();
         $("#good_night").hide();   
+        $("#budda").hide();   
 
         
         $("#yes").on("click", function() {
@@ -92,12 +97,15 @@
     })
 
     $("#no1").on("click", function() {
-        $("#list").effect('explode',{mode:'toggle'},1000);
+        $("#list").animate({
+          backgroundColor: 'red'
+        }, 1000);
+        $("#list").effect('explode',{mode:'toggle'},3000);
         $("#incident").fadeOut(2000);
         $("#reply").fadeOut(2000);
         $("#next").fadeOut(2000);
         $("main").fadeOut(2000);
-        $("#good_night").fadeIn(4000); 
+        $("#budda").fadeIn(4000); 
     })
 
     
